@@ -12,6 +12,7 @@ import Login from "../pages/Login";
 import ProductDetails from "../pages/ProductDetails";
 import AllProducts from "../pages/AllProducts";
 import AddProducts from "../pages/AddProducts";
+import EditsProduct from "../pages/EditsProduct";
 
 export const router = createBrowserRouter([
   {
@@ -45,12 +46,12 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "/dashboard",
+    path: "dashboard",
     element: <DashboardLayout />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "",
+        path: "home",
         element: (
           <PrivateRoute>
             <Dashboard />
@@ -58,7 +59,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "dashboard/all-products",
+        path: "all-products",
         element: (
           <PrivateRoute>
             <AllProducts />
@@ -66,12 +67,22 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "dashboard/add-products",
+        path: "add-products",
         element: (
           <PrivateRoute>
             <AddProducts />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "all-products/edit/:id",
+        element: (
+          <PrivateRoute>
+            <EditsProduct />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/shoes/${params.id}`),
       },
     ],
   },

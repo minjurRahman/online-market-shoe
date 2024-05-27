@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import SingleProduuct from "../components/home/SingleProduuct";
+import SingleProductCard from "../components/dashboard/SingleProductCard";
 
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -10,12 +10,20 @@ const AllProducts = () => {
       .then((data) => setProducts(data));
   }, []);
 
+  const handleDeleteProduct = (id) => {
+    setProducts(products.filter((product) => product.id !== id));
+  };
+
   return (
     <div>
       <h1 className="text-6xl font-bold text-center">All Products</h1>
       <div className="my-20 flex flex-wrap gap-4">
         {products.map((shoe) => (
-          <SingleProduuct shoe={shoe} key={shoe.id} />
+          <SingleProductCard
+            shoe={shoe}
+            key={shoe.id}
+            deletedProduct={handleDeleteProduct}
+          />
         ))}
       </div>
     </div>
