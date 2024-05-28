@@ -1,12 +1,16 @@
 const Banner = () => {
+  const styles = {
+    backgroundImage:
+      'url("https://img.freepik.com/premium-photo/white-sports-shoes-heart-shape-from-laces-red-background-simple-flat-lay-banner-with-copy-space_313478-210.jpg")',
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    // width: "100%",
+    height: "70vh", // Adjust the height as needed
+  };
+
   return (
-    <div
-      className="hero"
-      style={{
-        backgroundImage:
-          "url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)",
-      }}
-    >
+    <div className="hero" style={styles}>
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md">

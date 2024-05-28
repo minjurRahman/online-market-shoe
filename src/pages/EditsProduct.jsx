@@ -105,7 +105,7 @@ const EditsProduct = () => {
             <input
               className="btn bg-blue-600 text-white p-4"
               type="submit"
-              value="Add Product"
+              value="Update Product"
             />
           </div>
         </form>
