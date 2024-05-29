@@ -13,6 +13,7 @@ import ProductDetails from "../pages/ProductDetails";
 import AllProducts from "../pages/AllProducts";
 import AddProducts from "../pages/AddProducts";
 import EditsProduct from "../pages/EditsProduct";
+import ProfileDashboard from "../pages/ProfileDashboard";
 
 export const router = createBrowserRouter([
   {
@@ -55,6 +56,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Dashboard />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <ProfileDashboard />
           </PrivateRoute>
         ),
       },
